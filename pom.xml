@@ -168,8 +168,7 @@
                         </goals>
                         <configuration>
                             <includes>
-                                <include>**/ItemService.class</include>
-                                <include>**/PostService.class</include>
+                                <include>**/*Service.class</include>
                             </includes>
                             <rules>
                                 <rule>
@@ -193,8 +192,7 @@
                         </goals>
                         <configuration>
                             <includes>
-                                <include>**/ItemService.class</include>
-                                <include>**/PostService.class</include>
+                                <include>**/*Service.class</include>
                             </includes>
                         </configuration>
                     </execution>
