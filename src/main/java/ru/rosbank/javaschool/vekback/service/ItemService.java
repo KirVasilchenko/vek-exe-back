@@ -2,7 +2,6 @@ package ru.rosbank.javaschool.vekback.service;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.hssf.util.HSSFColor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.rosbank.javaschool.vekback.dto.ItemResponseDto;
@@ -10,14 +9,10 @@ import ru.rosbank.javaschool.vekback.dto.ItemSaveRequestDto;
 import ru.rosbank.javaschool.vekback.entity.ItemEntity;
 import ru.rosbank.javaschool.vekback.repository.ItemRepository;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Service
 @Transactional
@@ -45,34 +40,33 @@ public class ItemService {
         HSSFSheet s = wb.createSheet();
 
         HSSFRow header = s.createRow(0);
-        HSSFCell hId = header.createCell(0);
-        HSSFCell hName = header.createCell(1);
-        HSSFCell hPrice = header.createCell(2);
-        HSSFCell hQuantity = header.createCell(3);
-        HSSFCell hImage = header.createCell(4);
-        HSSFCell hDescription = header.createCell(5);
-        hId.setCellValue("ID");
-        hName.setCellValue("Название");
-        hPrice.setCellValue("Цена");
-        hQuantity.setCellValue("Количество");
-        hImage.setCellValue("Адрес картинки");
-        hDescription.setCellValue("Описание");
+        HSSFCell headerId = header.createCell(0);
+        headerId.setCellValue("ID");
+        HSSFCell headerName = header.createCell(1);
+        headerName.setCellValue("Название");
+        HSSFCell headerPrice = header.createCell(2);
+        headerPrice.setCellValue("Цена");
+        HSSFCell headerQuantity = header.createCell(3);
+        headerQuantity.setCellValue("Количество");
+        HSSFCell headerImage = header.createCell(4);
+        headerImage.setCellValue("Адрес картинки");
+        HSSFCell headerDescription = header.createCell(5);
+        headerDescription.setCellValue("Описание");
         for (ItemEntity entity : repository.findAll()) {
             HSSFRow r = s.createRow(entity.getId());
-            HSSFCell cId = r.createCell(0);
-            HSSFCell cName = r.createCell(1);
-            HSSFCell cPrice = r.createCell(2);
-            HSSFCell cQuantity = r.createCell(3);
-            HSSFCell cImage = r.createCell(4);
-            HSSFCell cDescription = r.createCell(5);
-            cId.setCellValue(entity.getId());
-            cName.setCellValue(entity.getName());
-            cPrice.setCellValue(entity.getPrice());
-            cQuantity.setCellValue(entity.getQuantity());
-            cImage.setCellValue(entity.getImage());
-            cDescription.setCellValue(entity.getDescription());
+            HSSFCell cellId = r.createCell(0);
+            cellId.setCellValue(entity.getId());
+            HSSFCell cellName = r.createCell(1);
+            cellName.setCellValue(entity.getName());
+            HSSFCell cellPrice = r.createCell(2);
+            cellPrice.setCellValue(entity.getPrice());
+            HSSFCell cellQuantity = r.createCell(3);
+            cellQuantity.setCellValue(entity.getQuantity());
+            HSSFCell cellImage = r.createCell(4);
+            cellImage.setCellValue(entity.getImage());
+            HSSFCell cellDescription = r.createCell(5);
+            cellDescription.setCellValue(entity.getDescription());
         }
-
         try {
             FileOutputStream out = new FileOutputStream(filename);
             wb.write(out);
