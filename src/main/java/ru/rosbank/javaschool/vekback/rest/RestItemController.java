@@ -23,6 +23,12 @@ public class RestItemController {
     return itemService.getAll();
   }
 
+  @GetMapping("/price")
+  public void getPriceSheets() {
+    logger.info(Thread.currentThread().getName());
+    itemService.getPriceSheets();
+  }
+
 
   @PostMapping
   public ItemResponseDto save(@RequestBody ItemSaveRequestDto dto) {
