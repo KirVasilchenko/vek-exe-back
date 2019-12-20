@@ -22,8 +22,8 @@ public class VekBackApplication {
   public CommandLineRunner runner(PostRepository postRepository) {
     return args -> postRepository.saveAll(List.of(
         new PostEntity(0, "Поздравляем с началом зимы!", "https://psv4.userapi.com/c856332/u47270812/docs/d13/1bee4329fc6d/Little_Snowflake_-_Kids_Songs_-_Super_Simple_Songs.webm", false, 0),
-            new PostEntity(0, "В нашем зале 14.12 в 15:00 в честь открытия будет показ сериала \"Доктор Хаус\".", "https://psv4.userapi.com/c848128/u12185853/docs/d3/d8c99f225d60/House.mp4", false, 0),
-            new PostEntity(0, "Third", null, false, 0)
+            new PostEntity(0, "В нашем зале 14.12 в 15:00 в честь открытия будет показ сериала \"Доктор Хаус\".", "https://psv4.userapi.com/c848128/u12185853/docs/d3/798ba14413fa/House.mp4", false, 0),
+            new PostEntity(0, "Добро пожаловать на презентацию самого лучшего проекта уходящего года.", null, false, 100)
     ));
   }
 

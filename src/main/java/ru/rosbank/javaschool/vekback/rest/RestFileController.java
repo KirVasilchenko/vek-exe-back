@@ -34,7 +34,6 @@ public class RestFileController {
     return service.save(bytes);
   }
 
-  // TODO: security logic
   @GetMapping("/entity/{id}")
   public ResponseEntity<Resource> getEntity(@PathVariable String id) {
     UploadInfo uploadInfo = service.get(id);

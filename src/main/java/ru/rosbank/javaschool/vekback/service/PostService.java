@@ -41,7 +41,6 @@ public class PostService {
   public PostResponseDto likeById(int id) {
     final PostEntity entity = repository.findById(id)
         .orElseThrow(BadRequestException::new);
-    // FIXME: bad practice, use update methods
     entity.setLikes(entity.getLikes() + 1);
     return PostResponseDto.from(entity);
   }
@@ -49,7 +48,6 @@ public class PostService {
   public PostResponseDto dislikeById(int id) {
     final PostEntity entity = repository.findById(id)
         .orElseThrow(BadRequestException::new);
-    // FIXME: bad practice, use update methods
     entity.setLikes(entity.getLikes() - 1);
     return PostResponseDto.from(entity);
   }

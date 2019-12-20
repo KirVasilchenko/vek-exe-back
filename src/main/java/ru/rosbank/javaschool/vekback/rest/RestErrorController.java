@@ -41,18 +41,16 @@ public class RestErrorController extends AbstractErrorController {
     }
 
     if (error instanceof BadRequestException) {
-      status = 400; // TODO: move to constants
+      status = 400;
       message = "error.bad_request";
       return getErrorResponseDtoResponseEntity(error, status, message);
     }
     if (error instanceof UnsupportedFileTypeException) {
-      status = 400; // TODO: move to constants
+      status = 400;
       message = "error.bad_filetype";
       return getErrorResponseDtoResponseEntity(error, status, message);
     }
-    // TODO: what if this stuff throws exception
 
-    // catch all
     return getErrorResponseDtoResponseEntity(error, status, message);
   }
 

@@ -86,7 +86,6 @@ public class FileService {
             throw new UnsupportedFileTypeException(contentType);
         }
 
-        // FIXME: for demo only - danger zone
         String name = dto.getName() + extension;
         try {
             dto.getFile().transferTo(Paths.get(uploadPath).resolve(name));
